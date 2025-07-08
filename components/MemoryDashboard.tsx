@@ -14,7 +14,7 @@ export default function MemoryDashboard({ agentId }: { agentId: string }) {
 
   useEffect(() => {
     fetchMemoryBlocks();
-  }, [agentId]);
+  }, [agentId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchMemoryBlocks = async () => {
     try {

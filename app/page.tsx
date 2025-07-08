@@ -2,6 +2,7 @@
 
 import { useChat } from 'ai/react';
 import { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
@@ -136,8 +137,8 @@ export default function Chat() {
                 <div className="mt-6 flex flex-wrap justify-center gap-2">
                   <button 
                     onClick={() => {
-                      const event = { target: { value: "Hello! Please introduce yourself and tell me about your capabilities." } };
-                      handleInputChange(event as any);
+                      const event = { target: { value: "Hello! Please introduce yourself and tell me about your capabilities." } } as React.ChangeEvent<HTMLInputElement>;
+                      handleInputChange(event);
                     }}
                     className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors"
                   >
@@ -145,8 +146,8 @@ export default function Chat() {
                   </button>
                   <button 
                     onClick={() => {
-                      const event = { target: { value: "What can you help me with today?" } };
-                      handleInputChange(event as any);
+                      const event = { target: { value: "What can you help me with today?" } } as React.ChangeEvent<HTMLInputElement>;
+                      handleInputChange(event);
                     }}
                     className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors"
                   >
@@ -154,8 +155,8 @@ export default function Chat() {
                   </button>
                   <button 
                     onClick={() => {
-                      const event = { target: { value: "Remember that I'm working on a Next.js project with Letta integration." } };
-                      handleInputChange(event as any);
+                      const event = { target: { value: "Remember that I'm working on a Next.js project with Letta integration." } } as React.ChangeEvent<HTMLInputElement>;
+                      handleInputChange(event);
                     }}
                     className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors"
                   >
@@ -166,7 +167,7 @@ export default function Chat() {
             </div>
           )}
           
-          {messages.map((m, index) => (
+          {messages.map((m) => (
             <div
               key={m.id}
               className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
